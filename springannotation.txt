@@ -1,0 +1,107 @@
+Spring Framework provides a vast array of annotations that span across its core, data access, web, and integration modules. Below is a comprehensive list of key annotations used in various Spring modules, along with brief descriptions:
+
+
+Spring Core Annotations:
+------------------------
+1.  @Component: Marks a class as a Spring-managed component.
+2.  @Service: Specialization of `@Component` for service layer classes.
+3.  @Repository: Specialization of `@Component` for DAO (Data Access Object) classes.
+4.  @Controller: Specialization of `@Component` for MVC controller classes.
+5.  @RestController: Combination of `@Controller` and `@ResponseBody`, used in RESTful services.
+6.  @Configuration: Indicates a class that declares one or more `@Bean` methods.
+7.  @Bean: Marks a method to produce a bean to be managed by Spring.
+8.  @Scope: Specifies the scope of a bean (e.g., `singleton`, `prototype`).
+9.  @Lazy: Delays bean initialization until it is needed.
+10. @Primary: Indicates the preferred bean when multiple candidates are available.
+11. @Qualifier: Specifies which bean to inject when multiple beans of the same type are available.
+12. @Autowired: Marks a dependency to be injected by Spring’s DI (Dependency Injection).
+13. @Value: Injects values into fields from properties files or environment variables.
+14. @Profile: Specifies that a bean is only loaded in certain environments.
+15. @Order: Defines the execution order of components like aspects.
+16. @DependsOn: Specifies that a bean should be initialized after certain other beans.
+17. @PostConstruct: Marks a method to be invoked after dependency injection is complete.
+18. @PreDestroy: Marks a method to be invoked before the bean is destroyed.
+19. @ComponentScan: Configures component scanning for Spring-managed components.
+20. @PropertySource: Indicates the location of properties files to be used by Spring.
+21. @Import: Imports additional configuration classes.
+22. @ImportResource: Imports XML configuration files.
+
+Spring Data Annotations:
+------------------------
+23. @Entity: Marks a class as a JPA entity.
+24. @Table: Specifies the table name in the database for the entity.
+25. @Id: Marks a field as the primary key.
+26. @GeneratedValue: Specifies how the primary key should be generated.
+27. @Column: Specifies details of the column in the database.
+28. @JoinColumn: Defines the foreign key column.
+29. @OneToOne: Defines a one-to-one relationship.
+30. @OneToMany: Defines a one-to-many relationship.
+31. @ManyToOne: Defines a many-to-one relationship.
+32. @ManyToMany: Defines a many-to-many relationship.
+33. @Lob: Marks a field as a Large Object (LOB).
+34. @Transient: Marks a field to be ignored by the ORM.
+35. @Embedded: Embeds a component in an entity.
+36. @Embeddable: Marks a class as embeddable within an entity.
+37. @Version: Marks a field for optimistic locking.
+38. @Temporal: Specifies the temporal type (`DATE`, `TIME`, `TIMESTAMP`) for `Date` or `Calendar`.
+39. @Query: Defines a custom query using JPQL or SQL in Spring Data repositories.
+40. @Modifying: Indicates that a method modifies the database (insert, update, delete).
+
+
+Spring Web Annotations:
+-----------------------
+41. @RequestMapping: Maps HTTP requests to handler methods of MVC and REST controllers.
+42. @GetMapping: Shortcut for `@RequestMapping` with the HTTP GET method.
+43. @PostMapping: Shortcut for `@RequestMapping` with the HTTP POST method.
+44. @PutMapping: Shortcut for `@RequestMapping` with the HTTP PUT method.
+45. @DeleteMapping: Shortcut for `@RequestMapping` with the HTTP DELETE method.
+46. @PatchMapping: Shortcut for `@RequestMapping` with the HTTP PATCH method.
+47. @RequestParam: Binds a web request parameter to a method parameter.
+48. @PathVariable: Binds a URI template variable to a method parameter.
+49. @RequestBody: Binds the body of a web request to a method parameter.
+50. @ResponseBody: Indicates that a method's return value should be bound to the web response body.
+51. @ModelAttribute: Binds a method parameter or method return value to a named model attribute.
+52. @SessionAttributes: Indicates the names of session attributes to store in a session.
+53. @RequestHeader: Binds a web request header to a method parameter.
+54. @CookieValue: Binds a cookie value to a method parameter.
+55. @CrossOrigin: Enables cross-origin resource sharing (CORS) for controller methods.
+56. @ExceptionHandler: Defines a method to handle exceptions thrown by controller methods.
+57. @RestControllerAdvice: Combines `@ControllerAdvice` and `@ResponseBody` to handle exceptions across RESTful services.
+58. @ControllerAdvice: Allows global handling of exceptions, data binding, etc., across multiple controllers.
+
+Spring AOP Annotations:
+-----------------------
+59. @Aspect: Marks a class as an aspect (a modularization of a concern that cuts across multiple classes).
+60. @Before: Executes an advice before a method execution.
+61. @After: Executes an advice after a method execution.
+62. @AfterReturning: Executes an advice after a method successfully returns a result.
+63. @AfterThrowing: Executes an advice after a method throws an exception.
+64. @Around: Surrounds a method execution with custom behavior.
+65. @Pointcut: Declares a reusable pointcut expression.
+66. @EnableAspectJAutoProxy: Enables support for handling components marked with `@Aspect`.
+
+Spring Integration and Event Annotations:
+-----------------------------------------
+67. @EventListener: Marks a method as an event listener, handling specific events.
+68. @EnableScheduling: Enables Spring's scheduled task execution capability.
+69. @Scheduled: Marks a method to be scheduled to run at fixed intervals or cron expressions.
+70. @EnableAsync: Enables Spring's asynchronous method execution capability.
+71. @Async: Indicates that a method should be executed asynchronously.
+72. @EnableCaching: Enables Spring's annotation-driven cache management.
+73. @Cacheable: Indicates that the result of a method should be cached.
+74. @CachePut: Updates the cache with the result of the method.
+75. @CacheEvict: Removes entries from the cache.
+
+
+Spring Boot Annotations:
+-----------------------
+76. @SpringBootApplication: Combines `@Configuration`, `@EnableAutoConfiguration`, and `@ComponentScan` to simplify Spring Boot configuration.
+77. @EnableAutoConfiguration: Enables Spring Boot’s auto-configuration mechanism.
+78. @SpringBootTest: Indicates that the application context should be loaded for integration tests.
+79. @ConditionalOnProperty: Configures a bean to be registered based on a specific property.
+80. @ConditionalOnClass: Configures a bean to be registered only if a specific class is on the classpath.
+81. @ConditionalOnMissingBean: Registers a bean only if a specific bean is not already registered.
+82. @ConditionalOnBean: Registers a bean only if a specific bean is already registered.
+83. @ConditionalOnWebApplication: Registers a bean only if the application is a web application.
+84. @ConditionalOnNotWebApplication: Registers a bean only if the application is not a web application.
+

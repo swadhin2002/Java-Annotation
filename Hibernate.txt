@@ -1,0 +1,73 @@
+Hibernate, a popular Java framework for object-relational mapping (ORM), provides several annotations that are used to map Java classes to database tables, and class fields to table columns. Below are some of the key Hibernate annotations, organized by their purpose:
+
+ 1. Entity-Level Annotations:
+------------------------------
+   - @Entity: Marks a class as a Hibernate entity, meaning it is mapped to a database table.
+   - @Table: Specifies the table in the database with which the entity is associated. This annotation is optional if the table name matches the entity name.
+     - name: Specifies the name of the table.
+     - schema: Specifies the schema of the table.
+     
+ 2. Primary Key Annotations:
+------------------------------
+   - @Id: Marks a field as the primary key of the entity.
+   - @GeneratedValue: Specifies how the primary key value is generated. Strategies include:
+     - GenerationType.IDENTITY: Relies on an auto-increment column in the database.
+     - GenerationType.SEQUENCE: Uses a database sequence to generate unique values.
+     - GenerationType.TABLE: Uses a table in the database to generate unique values.
+     - GenerationType.AUTO: Automatically selects the generation strategy based on the database dialect.
+   - @SequenceGenerator: Defines a primary key generator using a database sequence.
+   - @TableGenerator: Defines a primary key generator using a database table.
+
+ 3. Column-Level Annotations:
+------------------------------
+   - @Column: Maps a field to a specific column in the database table. Allows customization of column attributes.
+     - name: Specifies the column name.
+     - nullable: Defines whether the column can be `null`.
+     - length: Sets the column length for `String` values.
+     - unique: Indicates whether the column should be unique.
+   - @Temporal: Specifies the type of a `Date` or `Calendar` field.
+     - TemporalType.DATE: Maps to a `DATE` type in the database.
+     - TemporalType.TIME: Maps to a `TIME` type in the database.
+     - TemporalType.TIMESTAMP: Maps to a `TIMESTAMP` type in the database.
+   - @Lob: Marks a field as a large object (`BLOB` or `CLOB`).
+   - @Transient: Specifies that a field is not persistent and should not be mapped to any database column.
+
+4. Relationship Annotations:
+------------------------------
+   - @OneToOne: Specifies a one-to-one relationship between two entities.
+     - mappedBy: Used in the non-owning side of the relationship to specify the owning entity’s field name.
+     - cascade: Defines cascade operations to be applied to the related entity.
+     - fetch: Specifies the fetching strategy (`EAGER` or `LAZY`).
+   - @OneToMany: Specifies a one-to-many relationship between entities.
+     - mappedBy: Used in the non-owning side of the relationship to specify the owning entity’s field name.
+   - @ManyToOne: Specifies a many-to-one relationship.
+     - cascade: Defines cascade operations.
+     - fetch: Specifies the fetching strategy.
+   - @ManyToMany: Specifies a many-to-many relationship.
+     - mappedBy: Used in the non-owning side to specify the owning entity’s field name.
+     - joinTable: Specifies the join table for the relationship.
+   - @JoinColumn: Specifies the column that joins two entities in a relationship.
+   - @JoinTable: Specifies the table for the join in many-to-many relationships.
+
+5. Inheritance Annotations:
+------------------------------
+   - @Inheritance: Defines the inheritance strategy for entities.
+     - InheritanceType.SINGLE_TABLE: Maps all classes to a single table.
+     - InheritanceType.JOINED: Maps each class to its own table, with relationships between tables.
+     - InheritanceType.TABLE_PER_CLASS: Maps each class to its own table, without shared columns.
+   - @DiscriminatorColumn: Specifies the column used to differentiate between entities in a single-table inheritance.
+   - @DiscriminatorValue: Defines the value used in the discriminator column for a specific entity.
+
+ 6. Additional Annotations:
+------------------------------
+   - @Embedded: Marks an embeddable class.
+   - @Embeddable: Marks a class whose fields are part of the entity it is embedded in.
+   - @EmbeddedId: Marks a composite primary key class that is embeddable.
+   - @AttributeOverride: Allows overriding of attributes in an embeddable class.
+   - @AttributeOverrides: Allows overriding of multiple attributes in an embeddable class.
+   - @NamedQuery: Defines a named query at the entity level.
+   - @NamedQueries: Defines multiple named queries.
+   - @SQLInsert, @SQLUpdate, @SQLDelete: Allows customizing the SQL statements used for insert, update, and delete operations.
+   - @Filter: Used to apply filters to entities or collections.
+   - @Where: Specifies an additional SQL `WHERE` clause to filter an entity or collection.
+
